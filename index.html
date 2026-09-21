@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Snapshot — turn any public website URL into a full-page image, PDF, long screenshot, or PowerPoint.">
+<title>Snapshot — Website Capture Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07100e;--panel:#0d1916;--line:#20352f;--text:#eff8f4;--muted:#91a8a0;--accent:#b9ff66;--danger:#ff7c7c;--shadow:0 30px 90px rgba(0,0,0,.38)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 75% 0,#17382b 0,transparent 32%),var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;min-height:100vh}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(to bottom,#000,transparent 75%)}.wrap{width:min(1180px,92vw);margin:auto}.nav{height:78px;display:flex;align-items:center;justify-content:space-between}.brand{font-family:"Space Grotesk";font-weight:700;letter-spacing:-.04em;font-size:21px}.brand i{display:inline-block;width:9px;height:9px;background:var(--accent);border-radius:50%;margin-left:7px;box-shadow:0 0 20px var(--accent)}.status{font-size:11px;color:#a8bcb5;text-transform:uppercase;letter-spacing:.14em}.status b{color:var(--accent);font-size:15px;margin-right:7px}.hero{padding:88px 0 44px;text-align:center}.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:8px 12px;border:1px solid #29463d;background:rgba(16,33,29,.68);border-radius:999px;color:#b7cbc4;font-size:11px;letter-spacing:.13em;text-transform:uppercase}.eyebrow span{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}h1{font-family:"Space Grotesk";font-size:clamp(52px,8vw,102px);line-height:.9;letter-spacing:-.075em;margin:26px auto 22px;max-width:950px}h1 em{font-style:normal;color:var(--accent)}.sub{max-width:650px;margin:auto;color:var(--muted);font-size:16px;line-height:1.7}.studio{margin:48px auto 100px;max-width:1000px}.card{background:linear-gradient(145deg,rgba(16,33,29,.96),rgba(9,20,17,.96));border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);overflow:hidden}.bar{padding:13px 16px;border-bottom:1px solid var(--line);display:flex;gap:7px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#385149}.bar small{margin-left:auto;color:#60766e;font-size:10px;text-transform:uppercase;letter-spacing:.12em}.form{padding:26px}.label{font-size:11px;color:#89a098;text-transform:uppercase;letter-spacing:.13em;margin-bottom:9px}.urlrow{display:flex;gap:10px}.url{flex:1;background:#07110e;border:1px solid #29433b;color:var(--text);padding:18px 17px;border-radius:15px;font-size:15px;outline:none;transition:.2s}.url:focus{border-color:#5f936e;box-shadow:0 0 0 4px rgba(185,255,102,.07)}button{border:0;cursor:pointer;font:600 14px "DM Sans";border-radius:15px;transition:transform .18s,background .18s,box-shadow .18s}button:hover{transform:translateY(-1px)}.capture{padding:0 25px;background:var(--accent);color:#0a130f;box-shadow:0 10px 30px rgba(185,255,102,.15)}.formats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:16px}.format{padding:14px;background:#0a1512;border:1px solid #20362f;color:#a9bbb5;text-align:left}.format.active{border-color:#648c58;background:#14271e;color:var(--text);box-shadow:inset 0 0 0 1px rgba(185,255,102,.1)}.format strong{display:block;font-size:12px;margin-bottom:4px}.format span{font-size:10px;color:#71877f}.options{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:14px}.select{width:100%;background:#091511;border:1px solid #20362f;color:#c3d2cd;padding:12px;border-radius:12px;font:500 12px "DM Sans";outline:none}.progress{display:none;margin-top:18px;border:1px solid #244137;background:#08130f;border-radius:14px;padding:14px}.progress.show{display:block}.phead{display:flex;justify-content:space-between;font-size:12px;color:#a8bbb4}.meter{height:5px;background:#162721;border-radius:99px;overflow:hidden;margin-top:10px}.meter i{display:block;height:100%;width:8%;background:var(--accent);border-radius:99px;transition:width .4s}.result{display:none;margin-top:18px;padding:15px;border:1px solid #355345;border-radius:15px;background:#0a1713}.result.show{display:flex;align-items:center;justify-content:space-between;gap:15px}.result p{margin:0;color:#9fb1ab;font-size:12px}.download{padding:12px 17px;background:#eafbe0;color:#102014;white-space:nowrap}.error{color:var(--danger)!important}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}.feature{padding:22px;border:1px solid var(--line);border-radius:18px;background:rgba(12,27,23,.55)}.num{font-family:"Space Grotesk";font-size:12px;color:var(--accent)}.feature h3{font-size:15px;margin:24px 0 7px}.feature p{font-size:12px;line-height:1.65;color:var(--muted);margin:0}.foot{padding:28px 0 40px;border-top:1px solid #172a24;color:#627871;font-size:11px;display:flex;justify-content:space-between}.reveal{animation:rise .8s both}@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}@media(max-width:700px){.hero{padding-top:55px}h1{font-size:54px}.urlrow{flex-direction:column}.capture{padding:17px}.formats{grid-template-columns:1fr 1fr}.options{grid-template-columns:1fr}.features{grid-template-columns:1fr}.foot{display:block}.foot span{display:block;margin-top:8px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="nav"><div class="brand">SNAPSHOT<i></i></div><div class="status"><b>●</b> capture studio / online</div></header>
+<main>
+<section class="hero reveal"><div class="eyebrow"><span></span> website capture infrastructure</div><h1>Turn any URL into a <em>perfect snapshot.</em></h1><p class="sub">Paste a public website. Snapshot renders it in a real Chromium browser and gives you a downloadable full-page image, PDF, long screenshot, or PowerPoint.</p></section>
+<section class="studio reveal" style="animation-delay:.1s">
+<div class="card">
+<div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><small>render pipeline / v1</small></div>
+<div class="form">
+<div class="label">Website URL</div>
+<div class="urlrow"><input id="url" class="url" value="https://example.com" placeholder="https://yourwebsite.com" inputmode="url"><button id="capture" class="capture">Capture website →</button></div>
+<div class="formats">
+<button class="format active" data-format="png"><strong>IMAGE</strong><span>Full-page PNG</span></button>
+<button class="format" data-format="jpeg"><strong>LONG SHOT</strong><span>Compressed JPEG</span></button>
+<button class="format" data-format="pdf"><strong>PDF</strong><span>Print-ready document</span></button>
+<button class="format" data-format="pptx"><strong>POWERPOINT</strong><span>One-slide deck</span></button>
+</div>
+<div class="options">
+<select id="width" class="select"><option value="1440">Desktop · 1440px</option><option value="1920">Wide · 1920px</option><option value="390">Mobile · 390px</option></select>
+<select id="delay" class="select"><option value="3">Wait · 3 seconds</option><option value="5">Wait · 5 seconds</option><option value="8">Wait · 8 seconds</option></select>
+<select id="paper" class="select"><option value="A4">PDF · A4</option><option value="A3">PDF · A3</option><option value="Letter">PDF · Letter</option></select>
+</div>
+<div id="progress" class="progress"><div class="phead"><span id="progressText">Opening browser…</span><span id="progressPct">8%</span></div><div class="meter"><i id="meter"></i></div></div>
+<div id="result" class="result"><p id="resultText">Your capture is ready.</p><button id="download" class="download">Download file</button></div>
+</div></div>
+<div class="features">
+<div class="feature"><div class="num">01 / RENDER</div><h3>Real browser capture</h3><p>JavaScript, fonts, responsive layouts and lazy-loaded content are rendered before capture.</p></div>
+<div class="feature"><div class="num">02 / FULL PAGE</div><h3>Beyond the viewport</h3><p>Capture the entire scrollable page instead of a tiny viewport screenshot.</p></div>
+<div class="feature"><div class="num">03 / EXPORT</div><h3>Four deliverables</h3><p>PNG, JPEG, PDF and PowerPoint from the same rendered page.</p></div>
+</div>
+</section>
+</main>
+<footer class="foot"><span>SNAPSHOT / website capture studio</span><span>Built for design review, archives & presentations</span></footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.min.js"></script>
+<script>
+const $=s=>document.querySelector(s); let format="png",blob=null,fileName="";
+document.querySelectorAll(".format").forEach(b=>b.onclick=()=>{document.querySelectorAll(".format").forEach(x=>x.classList.remove("active"));b.classList.add("active");format=b.dataset.format});
+function setProgress(text,p){$("#progressText").textContent=text;$("#progressPct").textContent=p+"%";$("#meter").style.width=p+"%";}
+$("#capture").onclick=async()=>{
+ const url=$("#url").value.trim(); if(!/^https?:\/\//i.test(url)){return showError("Enter a complete URL beginning with https://")}
+ $("#progress").classList.add("show");$("#result").classList.remove("show");$("#resultText").className="";$("#capture").disabled=true;setProgress("Starting Chromium render…",12);
+ try{
+  const q=new URLSearchParams({url,format,width:$("#width").value,delay:$("#delay").value,paper:$("#paper").value});
+  setProgress("Rendering page & loading assets…",38);
+  const res=await fetch("/api/capture?"+q.toString());
+  if(!res.ok){const t=await res.text();let m=t;try{m=JSON.parse(t).error||t}catch{}throw new Error(m||"Capture failed")}
+  setProgress("Encoding deliverable…",82); blob=await res.blob();
+  const ext=format==="pptx"?"pptx":format; fileName="snapshot-"+new URL(url).hostname.replace(/^www\./,"")+"."+ext;
+  setProgress("Ready to download.",100);$("#resultText").textContent="Capture complete · "+Math.round(blob.size/1024)+" KB";$("#result").classList.add("show");
+ }catch(e){showError(e.message)}finally{$("#capture").disabled=false}
+};
+function showError(msg){$("#progress").classList.remove("show");$("#resultText").className="error";$("#resultText").textContent=msg;$("#result").classList.add("show")}
+$("#download").onclick=async()=>{
+ if(!blob)return;
+ if(format!=="pptx"){const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=fileName;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);return}
+ const imgUrl=URL.createObjectURL(blob),img=new Image();img.src=imgUrl;await new Promise((r,j)=>{img.onload=r;img.onerror=j});
+ const pptx=new pptxgen();pptx.layout="LAYOUT_WIDE";pptx.author="Snapshot";pptx.subject="Website capture";pptx.title=fileName;
+ const slide=pptx.addSlide(), sw=13.333, sh=7.5, ratio=img.naturalWidth/img.naturalHeight, w=sw, h=w/ratio; slide.addImage({path:imgUrl,x:0,y:Math.max(0,(sh-h)/2),w,h}); await pptx.writeFile({fileName});URL.revokeObjectURL(imgUrl);
+};
+</script>
+</body></html>
